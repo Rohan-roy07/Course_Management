@@ -41,13 +41,7 @@ style={{height:'180px',objectFit:'cover'}}/>}
 {c.description}
 </p>
 
-<Link
-to={`/student/courses`}
-className="btn btn-outline-primary btn-sm">
 
-View Courses
-
-</Link>
 
 </div>
 
