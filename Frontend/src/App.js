@@ -20,72 +20,82 @@ import StudentAssessments from './components/StudentAssessments';
 
 
 function AppContent() {
-  const { role } = useContext(AuthContext);
-  const token = localStorage.getItem('token');
+  const { role, isAuthenticated, isLoading } = useContext(AuthContext);
+  if (isLoading) {
+    return (
+      <div className="min-vh-100 d-flex align-items-center justify-content-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="App">
       <NavigationBar />
       <Routes>
-        <Route
-          path="/"
-          element={token ? <Dashboard /> : <Navigate to="/login" />}
-        />
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route
-          path="/courses"
-          element={token ? <CourseList /> : <Navigate to="/login" />}
+          path="/dashboard"
+          element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
         />
         <Route
+          path="/courses"
+          element={isAuthenticated ? <CourseList /> : <Navigate to="/login" />}
+        />
+
+        <Route
           path="/teacher/courses"
-          element={token && role === 'Teacher' ? <TeacherCourses /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Teacher' ? <TeacherCourses /> : <Navigate to="/login" />}
         />
         <Route
           path="/teacher/lessons"
-          element={token && role === 'Teacher' ? <TeacherLessons /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Teacher' ? <TeacherLessons /> : <Navigate to="/login" />}
         />
         <Route
           path="/teacher/assessments"
-          element={token && role === 'Teacher' ? <TeacherAssessments /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Teacher' ? <TeacherAssessments /> : <Navigate to="/login" />}
         />
         <Route
           path="/teacher/grades"
-          element={token && role === 'Teacher' ? <TeacherGrades /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Teacher' ? <TeacherGrades /> : <Navigate to="/login" />}
         />
         <Route
           path="/courses/new"
-          element={token && role === 'Teacher' ? <CourseForm /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Teacher' ? <CourseForm /> : <Navigate to="/login" />}
         />
         <Route
           path="/student/courses"
-          element={token && role === 'Student' ? <StudentCourses /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Student' ? <StudentCourses /> : <Navigate to="/login" />}
         />
         <Route
           path="/student/courses/:courseId/lessons"
-          element={token && role === 'Student' ? <StudentLessons /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Student' ? <StudentLessons /> : <Navigate to="/login" />}
         />
         <Route
           path="/student/courses/:courseId/assessments"
-          element={token && role === 'Student' ? <StudentAssessments /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Student' ? <StudentAssessments /> : <Navigate to="/login" />}
         />
         <Route
           path="/student/grades"
-          element={token && role === 'Student' ? <StudentGrades /> : <Navigate to="/login" />}
+          element={isAuthenticated && role === 'Student' ? <StudentGrades /> : <Navigate to="/login" />}
         />
         <Route
           path="/admin"
-          element={token && role === 'Admin' ? <AdminPanel /> : <Navigate to="/" />}
+          element={isAuthenticated && role === 'Admin' ? <AdminPanel /> : <Navigate to="/login" />}
         />
         <Route
           path="/admin/pending"
-          element={token && role === 'Admin' ? <AdminPanel /> : <Navigate to="/" />}
+          element={isAuthenticated && role === 'Admin' ? <AdminPanel /> : <Navigate to="/login" />}
         />
         <Route
           path="/teacher"
-          element={token && role === 'Teacher' ? <TeacherPanel /> : <Navigate to="/" />}
+          element={isAuthenticated && role === 'Teacher' ? <TeacherPanel /> : <Navigate to="/login" />}
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </div>
   );

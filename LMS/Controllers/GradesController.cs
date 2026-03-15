@@ -38,11 +38,14 @@ namespace LMS.Controllers
             return Ok(list);
         }
 
-        [Authorize(Roles = UserRoles.Student)]
+[Authorize(Roles = UserRoles.Student)]
         [HttpGet("mystudent/{studentId}")]
         public async Task<IActionResult> MyGrades(int studentId)
         {
-            var grades = await _context.Grades.Where(g => g.StudentId == studentId).ToListAsync();
+            var grades = await (from g in _context.Grades
+                                join a in _context.Assessments on g.AssessmentId equals a.AssessmentId
+                                where g.StudentId == studentId
+                                select new { g.GradeId, g.AssessmentId, AssessmentTitle = a.Title, g.Score }).ToListAsync();
             return Ok(grades);
         }
     }

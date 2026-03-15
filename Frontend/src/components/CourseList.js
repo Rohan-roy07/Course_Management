@@ -42,10 +42,10 @@ style={{height:'180px',objectFit:'cover'}}/>}
 </p>
 
 <Link
-to={`/courses/${c.courseId}`}
+to={`/student/courses`}
 className="btn btn-outline-primary btn-sm">
 
-View Course
+View Courses
 
 </Link>
 

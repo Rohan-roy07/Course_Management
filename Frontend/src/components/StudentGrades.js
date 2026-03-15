@@ -58,7 +58,7 @@ My Grades
 {grades.map(g=>(
 
 <tr key={g.gradeId}>
-<td>{g.assessmentId}</td>
+<td>{g.assessmentTitle || g.assessmentId}</td>
 <td className="fw-bold">{g.score}</td>
 </tr>
 

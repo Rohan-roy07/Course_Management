@@ -28,7 +28,7 @@ function Login() {
       login(token, role, userName);
       localStorage.setItem("userId", id);
 
-      navigate("/");
+      navigate("/dashboard");
 
     } catch (err) {
 
@@ -103,7 +103,7 @@ function Login() {
                 <button className="btn btn-primary w-100 fw-bold">
                   Login
                 </button>
-                <p>Already have an account?<span><a href="signup">Sign Up</a></span></p>
+                <p>Dont't have any account?<span><a href="signup">Sign Up</a></span></p>
               </form>
 
             </div>
