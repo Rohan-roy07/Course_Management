@@ -1,0 +1,321 @@
+/* LMS Custom Styles - Using Bootstrap 5 as base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Custom CSS Variables */
+:root {
+  --lms-primary: #2563eb;
+  --lms-secondary: #64748b;
+  --lms-success: #10b981;
+  --lms-danger: #ef4444;
+  --lms-warning: #f59e0b;
+  --lms-info: #0ea5e9;
+  --lms-dark: #1e293b;
+  --lms-light: #f8fafc;
+  --lms-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --lms-card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --lms-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --navbar-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+}
+
+/* Body and App Container */
+body{
+background:#f1f5f9;
+font-family:'Segoe UI',sans-serif;
+}
+
+.card{
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.btn{
+border-radius:8px;
+}
+
+h2,h3,h4{
+font-weight:600;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Navbar Custom Styles - Gradient Navbar */
+.navbar {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  background: var(--navbar-gradient) ;
+  padding: 0.75rem 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link {
+  
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white !important;
+}
+
+.navbar-text {
+  font-weight: 500;
+}
+
+/* Card Enhancements */
+.card {
+  border: none;
+  box-shadow: var(--lms-card-shadow);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lms-hover-shadow);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+}
+
+.card-title {
+  color: var(--lms-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Button Enhancements */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--lms-primary);
+  border-color: var(--lms-primary);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-success {
+  background: var(--lms-success);
+  border-color: var(--lms-success);
+}
+
+.btn-danger {
+  background: var(--lms-danger);
+  border-color: var(--lms-danger);
+}
+
+/* Form Enhancements */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  border-color: var(--lms-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Container Styling - Glassmorphism effect */
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--lms-card-shadow);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--lms-dark);
+  font-weight: 600;
+}
+
+h2 {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--lms-primary);
+  border-radius: 2px;
+}
+
+/* Badge Enhancements */
+.badge {
+  padding: 0.5em 0.75em;
+  font-weight: 500;
+}
+
+/* Table Enhancements */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: var(--lms-primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Alert Enhancements */
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+/* List Group Enhancements */
+.list-group-item {
+  border-radius: 8px !important;
+  margin-bottom: 0.5rem;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.list-group-item:hover {
+  background-color: #f9fafb;
+}
+
+/* Input Group Enhancements */
+.input-group-text {
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+/* Custom Gradient Background for Auth Pages */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lms-gradient);
+  padding: 2rem;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Course Card Image */
+.card-img-top {
+  object-fit: cover;
+  height: 180px;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lms-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--lms-secondary);
+}
+
+.empty-state i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
